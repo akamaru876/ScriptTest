@@ -12,25 +12,30 @@ public class Boss
     //mpの残量
     public void Majic()
     {
-        //残りmpを減らす
-        this.mp -= this.mpCons;
+        for (int i = 0; i < 10; i++)
+        {
+            //残りmpを減らす
+            this.mp -= this.mpCons;
 
-        if (mp >= 5)
-        {
-            Debug.Log("魔法攻撃をした。残りMPは" + this.mp);
-        }
-        else
-        {
-            Debug.Log("MPが足りないため魔法が使えない");
+            if (mp >= 5)
+            {
+                Debug.Log("魔法攻撃をした。残りMPは" + this.mp +"。" + "ボスは" + mpAttack  + "のダメージを受けた");
+            }
+            else
+            {
+                Debug.Log("MPが足りないため魔法が使えない");
+            }
         }
     }
 
     //ボスの残りの体力
     public void Stamina()
     {
-        Debug.Log("ボスは"+mpAttack + "のダメージを受けた");
-        //残りhpを減らす
-        this.hp -= mpAttack;
+        for (int n = 0; n < 9; n++)
+        {
+            //残りhpを減らす
+            this.hp -= mpAttack;
+        }
     }
 
 }
@@ -45,8 +50,6 @@ public class Test : MonoBehaviour
 
         //マジックポイントの関数を呼び出す
         lastboss.Majic();
-        //ボス体力の関数を呼び出す
-        lastboss.Stamina();
     }
 
     // Update is called once per frame
