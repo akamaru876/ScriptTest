@@ -12,15 +12,17 @@ public class Boss
     //mpの残量
     public void Majic()
     {
+        //魔法攻撃を10回繰り返す
         for (int i = 0; i < 10; i++)
         {
             //残りmpを減らす
             this.mp -= this.mpCons;
-
+            //mpが残り5以上の場合
             if (mp >= 5)
             {
-                Debug.Log("魔法攻撃をした。残りMPは" + this.mp +"。" + "ボスは" + mpAttack  + "のダメージを受けた");
+                Debug.Log("魔法攻撃をした。残りMPは" + this.mp +"。" + "ボスは" + mpAttack  + "のダメージを受けた。");
             }
+            //mpが残り5未満の場合
             else
             {
                 Debug.Log("MPが足りないため魔法が使えない");
@@ -31,6 +33,7 @@ public class Boss
     //ボスの残りの体力
     public void Stamina()
     {
+        //攻撃できるの回数分
         for (int n = 0; n < 9; n++)
         {
             //残りhpを減らす
