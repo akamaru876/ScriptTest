@@ -6,42 +6,28 @@ using UnityEngine;
 public class Boss
 {
     public int mp = 53;    //マジックポイント
-    public int hp = 100;   //ボス体力
-    public int mpAttack = 10;  //魔法の攻撃力
     public int mpCons = 5;    //mpの消費量
-    //mpの残量
-    public void Majic()
+    //Majic関数
+    public void Magic()
     {
-        //魔法攻撃を10回繰り返す
-        for (int i = 0; i < 10; i++)
+        //mpの残りが5以上の場合
+        if(this.mp >= 5)
         {
-            //残りmpを減らす
-            this.mp -= this.mpCons;
-            //mpが残り5以上の場合
-            if (mp >= 5)
-            {
-                Debug.Log("魔法攻撃をした。残りMPは" + this.mp +"。" + "ボスは" + mpAttack  + "のダメージを受けた。");
-            }
-            //mpが残り5未満の場合
-            else
-            {
-                Debug.Log("MPが足りないため魔法が使えない");
-            }
+            //mpを5減らす
+           this.mp -= this.mpCons;
+            Debug.Log("魔法攻撃をした。残りMPは" + mp );
+           
         }
-    }
-
-    //ボスの残りの体力
-    public void Stamina()
-    {
-        //攻撃できるの回数分
-        for (int n = 0; n < 9; n++)
+        else
         {
-            //残りhpを減らす
-            this.hp -= mpAttack;
+            Debug.Log("MPが足りないため魔法が使えない");
         }
+        
     }
-
 }
+
+
+
 public class Test : MonoBehaviour
 {
    
@@ -51,8 +37,15 @@ public class Test : MonoBehaviour
         //Bossクラスの変数を宣言してインスタンスを代入
         Boss lastboss = new Boss();
 
-        //マジックポイントの関数を呼び出す
-        lastboss.Majic();
+        //10回繰り返す
+        for(int i = 0; i < 10; i++)
+        {
+            //magic関数を呼び出す
+            lastboss.Magic();
+        }
+        //11回目の呼び出し
+        lastboss.Magic();
+
     }
 
     // Update is called once per frame
