@@ -11,7 +11,7 @@ public class Boss
     public void Magic()
     {
         //mpの残りが5以上の場合
-        if(this.mp >= 5)
+        if(this.mp >= mpCons)
         {
             //mpを5減らす
            this.mp -= this.mpCons;
